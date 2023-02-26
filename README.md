@@ -25,6 +25,8 @@ This space includes sample SQL queries that have been adjusted and anonymized fr
 
 - Over/Partition By
 
+- With Clause
+
 ## Familiar concepts:
 
 - Data Modeling
