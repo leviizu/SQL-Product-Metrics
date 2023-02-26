@@ -8,7 +8,7 @@ FROM (--extracting all distinct spaces in database
   SELECT
     DISTINCT value.string_value AS space_id
   FROM
-    `office-life-169414.analytics_157635370.events_*`
+    `database1*`
   CROSS JOIN
     UNNEST (user_properties)
   WHERE
@@ -19,7 +19,7 @@ LEFT JOIN (--extracting users by their operating system
     COUNT(DISTINCT user_id) AS Users,
     device.operating_system AS os
   FROM
-    `office-life-169414.analytics_157635370.events_*`
+    `database1*`
   CROSS JOIN
     UNNEST (user_properties)
   WHERE
@@ -35,7 +35,7 @@ LEFT JOIN (--extracting users by device language
     COUNT(DISTINCT user_id) AS Users,
     SUBSTR(device.language,0,2) AS device_language
   FROM
-    `office-life-169414.analytics_157635370.events_*`
+    `database1*`
   CROSS JOIN
     UNNEST (user_properties)
   WHERE
