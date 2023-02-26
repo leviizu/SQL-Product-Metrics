@@ -7,7 +7,7 @@ CREATE OR REPLACE VIEW
     DATE,
     TYPE,
     OBJECT_NAME,
-    INDEX_NUMBER ) AS --this is the
+    INDEX_NUMBER ) AS --this is the first table
 WITH
   position_calculation AS (
   SELECT
@@ -17,14 +17,15 @@ WITH
     tracking_id,
     root_id MIN(position) AS true_position
   FROM
-    position_table 
+    position_table
   GROUP BY
     Date,
     id_number,
     web_id,
     tracking_id,
     root_id ),
-  —-this IS the second TABLE Cte2 AS (
+  --this IS the second table
+  Cte2 AS (
   SELECT
     u.user_group,
     i.item,
@@ -78,7 +79,8 @@ WITH
     p.id_number = sz.id_number
   WHERE
     g.geo1 IS NOT NULL
-    AND g.geo1<> '' ) —this IS the final TABLE
+    AND g.geo1<> '' )
+  --this IS the final TABLE
 SELECT
   user_group,
   item,
